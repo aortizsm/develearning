@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Soporte Moodle",
+    description:
+      "Brindamos soporte multinivel para tus plataformas, desde el levantamiento hasta la automatización de contenido.",
+    icon: "mdi:notebook-outline",
+  },
+  {
+    title: "Desarrollo Web Moodle",
+    description:
+      "¿Tienes alguna idea en mente? ¡Nosotros podemos hacerlo realidad!",
+    icon: "mdi:application-cog-outline",
+  },
+  {
+    title: "Integración academica / corporativa",
+    description:
+      "¿Necesitas automatizar la planificación académica? En devlearn contamos con 'MooGes', una aplicación que automatiza todo en Moodle.",
+    icon: "mdi:account-school-outline",
+  },
+  {
+    title: "Reportes personalizados",
+    description:
+      "Moodle contiene un sinfín de información, podemos construir el reporte perfecto para lo que necesitas.",
+    icon: "mdi:file-report-outline",
+  },
+  {
+    title: "Desarrollo videojuegos VR/AR",
+    description:
+      "Los videojuegos en la tecnología educativa es la mejor manera de absorber conocimientos, podemos potenciar tu curso con gamificación.",
+    icon: "mdi:unity",
+  },
+  {
+    title: "Capacitación",
+    description:
+      "Contamos con varios tipos de capacitación, desde administradores hasta desarrollo de plugins en Moodle",
+    icon: "mdi:teacher",
+  },
+];
+
+
+---
+
+<ContentSection title="Productos y servicios" id="productos">
+  <Fragment slot="lead">
+    Tenemos <span class="text-primary">productos y servicios</span> que
+    ajustamos a tus 
+    <span class="text-primary">necesidades y tiempos</span>.    
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="size-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} class="size-full" />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>

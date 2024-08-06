@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/showcase-card.astro";
+
+const featuredSites = await getCollection(
+  "showcase",
+  ({ data }) => "featured" in data,
+);
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
+---
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<ContentSection title="Contacto" id="contacto">
+  <Fragment slot="lead">
+    <a href="https://wa.me/56952595136?text=Me%20gustaría%20saber%20los%20servicios%20del%20que%20tienen" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i>
+    ¿Cuéntanos en que podemos ayudar?
+  </a>
+  </Fragment>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <!-- {orderedSites.map((site) => <ShowcaseCard site={site} />)} -->
+      
+      
+    </div>
+    <!-- <p class="text-right text-sm">
+      <a class="text-primary" href="https://astro.build/showcase/">
+        ...and more &rarr;
+      </a>
+    </p> -->
+  </div>
+</ContentSection>
+
+<style>
+  
+</style>

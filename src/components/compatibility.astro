@@ -1,0 +1,78 @@
+---
+import CompatibilityList from "~/components/compatibility-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+import pj from '~/icons/clients/pj.png';
+import enac from '~/icons/clients/enac.png';
+import iconlabs from '~/icons/clients/iconlabs.png';
+
+
+const clients: Array<CompatibilityItem> = [
+  {
+    title: "Poder Judicial",
+    icon: pj.src,
+    url: "https://www.pjud.cl/",
+  },
+  {
+    title: "ENAC",
+    icon: enac.src,
+    url: "https://enac.cl/",
+  },
+  {
+    title: "Iconlabs",
+    icon: iconlabs.src,
+    url: "https://www.iconlabs.cl/",
+  },
+ 
+];
+
+const platforms: Array<CompatibilityItem> = [
+  {
+    title: "Netlify",
+    icon: "platforms/netlify",
+    url: "https://www.netlify.com/",
+  },
+  {
+    title: "Vercel",
+    icon: "platforms/vercel",
+    url: "https://vercel.com/",
+  },
+  {
+    title: "Cloudflare",
+    icon: "fa-brands:cloudflare",
+    url: "https://pages.cloudflare.com/",
+  },
+  {
+    title: "Render",
+    icon: "platforms/render",
+    url: "https://render.com/",
+  },
+  {
+    title: "GitHub",
+    icon: "fa-brands:github",
+    url: "https://pages.github.com/",
+  },
+  {
+    title: "GitLab",
+    icon: "fa-brands:gitlab",
+    url: "https://docs.gitlab.com/ee/user/project/pages/",
+  },
+];
+---
+
+<ContentSection title="Clientes" id="clientes">
+  <Fragment slot="lead">
+    Algunos clientes que han </br><span class="text-primary">confiado</span>
+    en nosotros
+  </Fragment>
+  <CompatibilityList
+    items={clients}
+    title="Gracias"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />
+  <!-- <CompatibilityList
+    items={platforms}
+    title="Platforms"
+    url="https://docs.astro.build/guides/deploy/"
+  /> -->
+</ContentSection>
